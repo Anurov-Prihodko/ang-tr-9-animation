@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import { changeWidthTriggr, divTrigger } from './app.animations';
+import { AnimationEvent } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  animations: [divTrigger, changeWidthTriggr],
 })
 export class AppComponent {
-  title = 'ang-tr-9-animation';
+  isVisible = false;
+
+  onAnimationStart(event: AnimationEvent) {
+    console.log('Start: ', event);
+  }
+  onAnimationDone(event: AnimationEvent) {
+    console.log('Done: ', event);
+  }
 }
